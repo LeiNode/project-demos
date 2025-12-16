@@ -18,7 +18,6 @@ function App() {
       <BrowserRouter>
         <ParticleClass />
         <NavBar />
-        <Home />
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path = '/Project1' element={<Project1/>}/>
