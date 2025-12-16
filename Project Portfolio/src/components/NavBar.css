@@ -1,5 +1,7 @@
 .navbar {
-    background-color: black;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #657383;
+    width: 80px;
     height: 80px;
     display: flex;
     justify-content: start;
@@ -10,10 +12,12 @@
     margin-left: 2rem;
     font-size: 2rem;
     background: none;
+    cursor: pointer;
 }
 
 .nav-menu{
-    background-color: black;
+    background-color: #8391A1;
+    border-radius: 0 10px 10px 0;
     width: 250px;
     height: 100vh;
     display: flex;

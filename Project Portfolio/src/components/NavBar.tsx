@@ -14,17 +14,17 @@ function NavBar (){
   return (
     <>
         <IconContext.Provider value={{color:'white'}}>
-            <div className='navbar '>
-                <button className='menu-bars'>
+            <div className='navbar'>
+                <div className='menu-bars'>
                     <FaBars onClick={showSidebar}/>
-                </button>
+                </div>
             </div>
             <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
                 <ul className='nav-menu-items' onClick={showSidebar}>
                     <li className='navbar-toggle'>
-                        <button className='menu-bars'>
+                        <div className='menu-bars'>
                             <AiOutlineClose />
-                        </button>
+                        </div>
                     </li>
                     {SidebarData.map((items, index) => {
                         return(

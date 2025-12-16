@@ -4,12 +4,11 @@ import * as AiIcons from "react-icons/ai"
 export const SidebarData = [
     {
         title: 'Home',
-        path: '/Home',
-        icon: <AiIcons.AiFillHome />,
+        path: '/',
         cName: 'nav-text'
     },
     {
-        title: 'Project1',
+        title: 'Convolutional Neural Network',
         path: '/Project1',
         cName: 'nav-text'
     },
