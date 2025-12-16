@@ -1,0 +1,11 @@
+.content-container{
+    z-index: 1;
+    background-color: white;
+    width:auto;
+    height: auto;
+    margin: 2rem;
+    padding: 2rem;
+    left:0;
+    top:0;
+
+}

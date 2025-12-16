@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "bootstrap": "^5.3.8",
+    "react": "^19.2.3",
     "react-icon": "^1.0.0",
+    "react-icons": "^5.5.0",
     "react-router-dom": "^7.10.1",
     "vite": "^7.2.7"
   }
