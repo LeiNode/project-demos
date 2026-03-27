@@ -8,7 +8,7 @@ export const SidebarData = [
         cName: 'nav-text'
     },
     {
-        title: 'Convolutional Neural Network',
+        title: 'Convolutional Neural Network ',
         path: '/Project1',
         cName: 'nav-text'
     },

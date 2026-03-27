@@ -1,10 +1,11 @@
 .content-container{
     position: absolute; /* Positions the text relative to the container */
     top: 30%; /* Center vertically */
-    left: 50%; /* Center horizontally */
+    left: 60%; /* Center horizontally */
+    width: 60%; /* Sets the width of the text container */
     transform: translate(-50%, -50%); /* Precisely centers the text */
     color: white; /* Ensures text is visible */
-    background-color: #110f1128; /* Optional: Adds a background for readability */
+    background-color: #6a6a8528; /* Optional: Adds a background for readability */
     padding: 20px;
     border-radius: 30px;
 }
