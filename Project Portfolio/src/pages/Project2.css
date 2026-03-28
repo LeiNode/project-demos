@@ -1,0 +1,16 @@
+.content-container{
+    position: absolute; /* Positions the text relative to the container */
+    top: 30%; /* Center vertically */
+    left: 60%; /* Center horizontally */
+    width: 60%; /* Sets the width of the text container */
+    transform: translate(-50%, -50%); /* Precisely centers the text */
+    color: white; /* Ensures text is visible */
+    background-color: #6a6a8599; /* Optional: Adds a background for readability */
+    padding: 20px;
+    border-radius: 30px;
+}
+
+.content-container h1 {
+    font-size: 3rem; /* Adjusts the size of the heading */
+    margin-bottom: 20px; /* Adds space below the heading */
+}

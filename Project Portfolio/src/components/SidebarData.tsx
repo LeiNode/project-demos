@@ -8,18 +8,13 @@ export const SidebarData = [
         cName: 'nav-text'
     },
     {
-        title: 'Convolutional Neural Network ',
+        title: 'Anamoly Detection in Time Series Data',
         path: '/Project1',
         cName: 'nav-text'
     },
     {
-        title: 'Project2',
+        title: 'Stay Tuned for More Projects!',
         path: '/Project2',
         cName: 'nav-text'
-    },
-    {
-        title: 'Project3',
-        path: '/Project3',
-        cName: 'nav-text'
-    },
+    }
 ]

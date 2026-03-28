@@ -26,6 +26,7 @@
     top: 0;
     left: -100%;
     transition: 850ms;
+    z-index: 10;
 }  
 
 .nav-menu.active{
@@ -36,7 +37,7 @@
 .nav-text{
     display: flex;
     justify-content: start;
-    align-items: cetner;
+    align-items: center;
     padding: 8px 0px 8px 16px;
     list-style: None;
     height: 60px;
