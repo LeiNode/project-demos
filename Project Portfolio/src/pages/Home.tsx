@@ -3,7 +3,24 @@ import "./Home.css"
 
 function Home() {
   return (
-      <div>
+    <div className = 'home-container'>
+      
+      <span className = 'Picture-wrapper'>
+        <img src="https://avatars.githubusercontent.com/u/122863441?v=4" alt="Profile Picture" className='profile-picture' />
+        <div className='button-container'>
+          <a href="https://github.com/leinode" target="_blank">
+            <button className='button'>GitHub</button>
+          </a>
+          <a href="https://linkedin.com/in/daniel-nguyen-7a128224b">
+            <button className='button'>LinkedIn</button>
+          </a>
+          <a href="https://example.com/cv.pdf" target="_blank" rel="noopener noreferrer">
+            <button className='button'>CV</button>
+          </a>
+        </div>
+      </span>
+
+      <span className = 'content-wrapper'>
         <div className='content-container'> 
           About Me
           <p>
@@ -42,7 +59,9 @@ function Home() {
             I look forward to connecting with you.
           </p>
         </div>
-      </div>
+
+      </span>
+    </div>
     
   )
 }

@@ -13,6 +13,7 @@
     font-size: 2rem;
     background: none;
     cursor: pointer;
+    position:sticky;
 }
 
 .nav-menu{

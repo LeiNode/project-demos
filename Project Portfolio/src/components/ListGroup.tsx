@@ -8,7 +8,7 @@ interface Props {
 
 function ListGroup({ items, heading }:Props) {
   // State Hook
-  const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [selectedIndex, setSelectedIndex] = useState(1);
 
   return (
     <>

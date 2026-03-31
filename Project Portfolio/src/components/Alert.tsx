@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import { RxHamburgerMenu } from "react-icons/rx";
 
 interface Props {
     children: ReactNode;

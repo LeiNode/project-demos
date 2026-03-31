@@ -1,7 +1,16 @@
+.home-container {
+    position: relative; /* Establishes a positioning context for the text */
+    left:10%;
+    width: 80%; /* Ensures the container takes up the full width */
+    height: 100vh; /* Sets the height to fill the viewport */
+    display: flex; /* Enables flexbox layout */
+    justify-content: center; /* Centers content horizontally */
+    align-items: flex-start; /* Centers content vertically */
+    justify-content: space-around;
+}
+
 .content-container{
-    position: relative; /* Positions the text relative to the container */
-    left: 40%; /* Center horizontally */
-    width: 50%; /* Sets the width of the text container */
+    position: flex; /* Positions the text relative to the container */
     color: white; /* Ensures text is visible */
     background-color: #8391A1d2; /* Optional: Adds a background for readability */
     padding: 20px;
@@ -12,4 +21,14 @@
 .content-container h1 {
     font-size: 3rem; /* Adjusts the size of the heading */
     margin-bottom: 20px; /* Adds space below the heading */
+}
+
+.picture-wrapper{
+    vertical-align: top;
+    position: relative;
+    top: 0%;
+    left: 0%;
+    background-color: #8391A1d2;
+    border-radius: 30px;
+    padding: 20px;
 }
