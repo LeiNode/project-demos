@@ -37,7 +37,7 @@ const ParticleClass = () => {
     () => ({
       background: {
         color: {
-          value: "#232023",
+          value: "#000000",
         },
       },
       fpsLimit: 120,
