@@ -2,6 +2,7 @@ import ListGroup from "./components/ListGroup"
 import Alert from './components/Alert';
 import NavBar from './components/NavBar';
 import ParticleClass from "./components/ParticlesClass";
+import Earth from "./components/Earth";
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home';
 import Project1 from './pages/Project1';
@@ -17,6 +18,7 @@ function App() {
       
       <BrowserRouter>
         <ParticleClass />
+        <Earth />
         <NavBar />
         <Routes>
           <Route path='/' element={<Home/>}/>
