@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { AiOutlineClose } from "react-icons/ai"
 import { FaBars } from "react-icons/fa";
 import { Link } from 'react-router-dom';

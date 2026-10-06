@@ -1,6 +1,3 @@
-import React from 'react'
-import * as AiIcons from "react-icons/ai"
-
 export const SidebarData = [
     {
         title: 'Home',
@@ -8,13 +5,18 @@ export const SidebarData = [
         cName: 'nav-text'
     },
     {
-        title: 'Anamoly Detection in Time Series Data',
-        path: '/Project1',
+        title: 'About Me',
+        path: '/about',
         cName: 'nav-text'
     },
     {
-        title: 'Stay Tuned for More Projects!',
-        path: '/Project2',
+        title: 'Projects',
+        path: '/projects',
+        cName: 'nav-text'
+    },
+    {
+        title: 'Connect',
+        path: '/connect',
         cName: 'nav-text'
     }
 ]

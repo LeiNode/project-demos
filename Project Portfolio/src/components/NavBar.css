@@ -73,6 +73,7 @@
     align-items: center;
 }
 
-span{
+/* Scoped to the sidebar links; a bare `span` rule would shift every span on the site */
+.nav-text span{
     margin-left:16px;
 }

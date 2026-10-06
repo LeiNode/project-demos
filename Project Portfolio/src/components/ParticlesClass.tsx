@@ -84,8 +84,12 @@ const ParticleClass = () => {
           straight: false,
         },
         number: {
+          // Scales the count to the screen's area: 80 particles on a
+          // 1920x1080 screen, proportionally fewer on smaller screens
           density: {
-            enable: false,
+            enable: true,
+            width: 1920,
+            height: 1080,
           },
           value: 80,
         },

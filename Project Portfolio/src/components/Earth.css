@@ -1,53 +1,21 @@
-/* The visible part of the planet: full screen width, bottom half of the screen */
-.earth-wrapper {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100vw;
-    height: 50vh;
-    pointer-events: none; /* Lets clicks pass through to the page */
-    z-index: 0;
-}
-
-/* A circle twice as wide as the screen, so only its gently curved top shows.
-   Its edges still reach past both sides of the screen at the bottom. */
+/* A full, static globe. Sized by whichever is tighter, screen width or height,
+   so it stays round and leaves room for the name above and the menu below. */
 .earth {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 200vw;
-    height: 200vw;
-    transform: translateX(-50%);
+    position: relative;
+    isolation: isolate; /* Keeps the shade and label layering inside the globe */
+    width: min(85vw, 58vh);
+    aspect-ratio: 1;
     border-radius: 50%;
     overflow: hidden;
-    background: linear-gradient(to bottom, #4fa3e0, #1a5fa8 25vh, #0b2f5c 50vh);
+    background: radial-gradient(circle at 35% 30%, #4fa3e0, #1a5fa8 55%, #0b2f5c);
     box-shadow:
-        0 0 60px 15px rgba(79, 163, 224, 0.45), /* Atmosphere glow */
-        0 0 160px 60px rgba(79, 163, 224, 0.15);
+        0 0 40px 10px rgba(79, 163, 224, 0.45), /* Atmosphere glow */
+        0 0 120px 40px rgba(79, 163, 224, 0.15);
 }
 
-/* Covers the visible band only; two copies of the surface side by side */
-.earth-surface {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 400vw;
-    height: 50vh;
-    display: flex;
-}
-
-.earth-half {
-    position: relative;
-    width: 50%;
-    height: 100%;
-}
-
-/* A landmass is a bounding box (positioned the same way the old single-shape
-   continents were); the pieces inside it are positioned relative to that box. */
+/* A landmass is a bounding box; the pieces inside it are positioned relative to that box */
 .landmass {
     position: absolute;
-    pointer-events: auto; /* re-enable hover on top of the wrapper's pointer-events: none */
-    cursor: pointer;
 }
 
 .piece {
@@ -55,10 +23,12 @@
     transition: filter 0.15s ease;
 }
 
-/* Black outline traced around the piece's own clipped shape, built from
-   8 offset drop-shadows since clip-path would clip a real border */
-.landmass:hover .piece {
+/* Darkens the land, then adds a black outline traced around the piece's own
+   clipped shape, built from 8 offset drop-shadows since clip-path would clip a real border */
+.landmass-link:hover .piece,
+.landmass-link:focus-visible .piece {
     filter:
+        brightness(0.7)
         drop-shadow(3px 0 0 #000000)
         drop-shadow(-3px 0 0 #000000)
         drop-shadow(0 3px 0 #000000)
@@ -69,12 +39,31 @@
         drop-shadow(-3px -3px 0 #000000);
 }
 
-/* Overlapping slots a landmass's pieces can occupy, in its own local 0-100% space */
-.piece-a { top: 0%;  left: 5%;  width: 65%; height: 55%; }
-.piece-b { top: 30%; left: 40%; width: 60%; height: 60%; }
-.piece-c { top: 55%; left: 0%;  width: 50%; height: 45%; }
-.piece-d { top: 0%;  left: 55%; width: 45%; height: 40%; }
-.piece-e { top: 60%; left: 55%; width: 40%; height: 40%; }
+.landmass-link:focus-visible {
+    outline: none; /* The outlined land is the focus indicator */
+}
+
+/* Always-visible name of the page the continent links to */
+.landmass-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Above the shade */
+    padding: 0.3em 0.8em;
+    border-radius: 999px;
+    background-color: rgba(0, 0, 0, 0.55);
+    color: #ffffff;
+    font-size: clamp(12px, 2.6vmin, 20px);
+    font-weight: bold;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
+}
+
+.landmass-link:hover .landmass-label,
+.landmass-link:focus-visible .landmass-label {
+    background-color: #1a83ff;
+}
 
 /* The different shapes a piece can be, each a slightly different green so the
    seams between combined pieces still read as facets rather than vanishing */
@@ -83,48 +72,35 @@
 .shape-triangle { clip-path: polygon(50% 0%, 100% 100%, 0% 100%);                            background-color: #357f3f; }
 .shape-diamond  { clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);                    background-color: #52a35e; }
 
-/* Left% maps longitude -180..180 across the texture; top% maps latitude 90..-90.
-   Only the middle 25%-75% of this band sits in view once the globe stops spinning. */
-.landmass-namerica  { top: 8.3%;  left: 2.8%;  width: 33.3%; height: 33.3%; }
-.landmass-samerica  { top: 44.4%; left: 27.8%; width: 12.5%; height: 36.1%; }
-.landmass-africa    { top: 30.6%; left: 44.4%; width: 19.4%; height: 38.9%; }
-.landmass-eurasia   { top: 8.3%;  left: 47.2%; width: 44.4%; height: 47.2%; }
-.landmass-australia { top: 55.6%; left: 81.4%; width: 11.4%; height: 16.1%; }
+/* Where each landmass sits on the globe, as percentages of the globe's size.
+   Anything past the round edge is hidden. */
+.landmass-namerica  { top: 18%; left: 12%; width: 34%; height: 30%; }
+.landmass-samerica  { top: 50%; left: 26%; width: 18%; height: 30%; }
+.landmass-eurasia   { top: 14%; left: 50%; width: 38%; height: 32%; }
+.landmass-africa    { top: 48%; left: 52%; width: 22%; height: 30%; }
+.landmass-australia { top: 62%; left: 74%; width: 14%; height: 12%; }
 .landmass-australia .piece { background-color: #8a9a4b; }
 
-/* South polar ice: wraps the full width of the texture as a jagged ice shelf */
-.continent {
+/* South polar ice: the round edge of the globe trims it into a cap */
+.ice-cap {
     position: absolute;
-    pointer-events: auto;
-    cursor: pointer;
-    transition: filter 0.15s ease;
-}
-
-.continent:hover {
-    filter:
-        drop-shadow(3px 0 0 #000000)
-        drop-shadow(-3px 0 0 #000000)
-        drop-shadow(0 3px 0 #000000)
-        drop-shadow(0 -3px 0 #000000)
-        drop-shadow(3px 3px 0 #000000)
-        drop-shadow(-3px 3px 0 #000000)
-        drop-shadow(3px -3px 0 #000000)
-        drop-shadow(-3px -3px 0 #000000);
-}
-
-.continent-antarctica {
-    top: 83.3%;
+    top: 86%;
     left: 0;
     width: 100%;
-    height: 16.7%;
+    height: 14%;
     background-color: #eaf2f6;
     clip-path: polygon(0% 100%, 0% 40%, 15% 0%, 85% 0%, 100% 40%, 100% 100%);
 }
 
-/* Bright atmosphere along the top edge, and night falling on the right */
+/* Highlight top-left and night falling bottom-right to make it look round */
 .earth-shade {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, transparent 35%, rgba(0, 0, 0, 0.45) 75%);
-    box-shadow: inset 0 12px 40px rgba(173, 216, 255, 0.5);
+    z-index: 1;
+    border-radius: 50%;
+    pointer-events: none; /* Clicks go through to the land underneath */
+    background:
+        radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.25), transparent 45%),
+        radial-gradient(circle at 75% 80%, rgba(0, 0, 0, 0.5), transparent 60%);
+    box-shadow: inset -20px -20px 50px rgba(0, 0, 0, 0.5);
 }

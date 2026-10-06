@@ -1,34 +1,48 @@
 .home-container {
-    position: relative; /* Establishes a positioning context for the text */
-    left:10%;
-    width: 80%; /* Ensures the container takes up the full width */
-    height: 100vh; /* Sets the height to fill the viewport */
-    display: flex; /* Enables flexbox layout */
-    justify-content: center; /* Centers content horizontally */
-    align-items: flex-start; /* Centers content vertically */
-    justify-content: space-around;
-}
-
-.content-container{
-    position: flex; /* Positions the text relative to the container */
-    color: white; /* Ensures text is visible */
-    background-color: #8391A1d2; /* Optional: Adds a background for readability */
-    padding: 20px;
-    border-radius: 30px;
-    margin-bottom: 20px;
-}
-
-.content-container h1 {
-    font-size: 3rem; /* Adjusts the size of the heading */
-    margin-bottom: 20px; /* Adds space below the heading */
-}
-
-.picture-wrapper{
-    vertical-align: top;
     position: relative;
-    top: 0%;
-    left: 0%;
-    background-color: #8391A1d2;
-    border-radius: 30px;
-    padding: 20px;
+    z-index: 1; /* Above the particle background */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(12px, 4vh, 40px);
+    padding: 16px;
+    color: white;
+    text-align: center;
+}
+
+.home-header h1 {
+    margin: 0;
+    font-size: clamp(1.6rem, 5vmin, 3rem);
+}
+
+.home-header p {
+    margin: 0;
+    opacity: 0.8;
+    font-size: clamp(0.9rem, 2.2vmin, 1.25rem);
+}
+
+.home-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+}
+
+.home-menu a {
+    color: white;
+    opacity: 0.75;
+    text-decoration: none;
+}
+
+.home-menu a:hover,
+.home-menu a:focus-visible {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.home-footer {
+    opacity: 0.5;
+    font-size: 0.8rem;
 }

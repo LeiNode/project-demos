@@ -3,7 +3,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 
 interface Props {
     items: string[];
-    heading: String;
+    heading: string;
 }
 
 function ListGroup({ items, heading }:Props) {

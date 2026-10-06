@@ -1,10 +1,10 @@
-import ListGroup from "./components/ListGroup"
-import Alert from './components/Alert';
 import NavBar from './components/NavBar';
 import ParticleClass from "./components/ParticlesClass";
-import Earth from "./components/Earth";
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './pages/Home';
+import About from './pages/About';
+import Projects from './pages/Projects';
+import Connect from './pages/Connect';
 import Project1 from './pages/Project1';
 import Project2 from './pages/Project2';
 import { SHOW_TEXT } from './featureFlags';
@@ -19,10 +19,12 @@ function App() {
 
       <BrowserRouter>
         <ParticleClass />
-        <Earth />
         {SHOW_TEXT && <NavBar />}
         <Routes>
           <Route path='/' element={<Home/>}/>
+          <Route path='/about' element={<About/>}/>
+          <Route path='/projects' element={<Projects/>}/>
+          <Route path='/connect' element={<Connect/>}/>
           <Route path = '/Project1' element={<Project1/>}/>
           <Route path = '/Project2' element= {<Project2/>} />
         </Routes>
