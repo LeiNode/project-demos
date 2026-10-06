@@ -1,11 +1,12 @@
 import React from 'react'
 import "./Home.css"
+import { SHOW_TEXT } from '../featureFlags'
 
 function Home() {
   return (
     <div className = 'home-container'>
-      
-      <span className = 'Picture-wrapper'>
+
+      {SHOW_TEXT && <span className = 'Picture-wrapper'>
         <img src="https://avatars.githubusercontent.com/u/122863441?v=4" alt="Profile Picture" className='profile-picture' />
         <div className='button-container'>
           <a href="https://github.com/leinode" target="_blank">
@@ -18,9 +19,9 @@ function Home() {
             <button className='button'>CV</button>
           </a>
         </div>
-      </span>
+      </span>}
 
-      <span className = 'content-wrapper'>
+      {SHOW_TEXT && <span className = 'content-wrapper'>
         <div className='content-container'> 
           About Me
           <p>
@@ -60,9 +61,9 @@ function Home() {
           </p>
         </div>
 
-      </span>
+      </span>}
     </div>
-    
+
   )
 }
 
