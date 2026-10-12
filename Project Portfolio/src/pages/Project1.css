@@ -1,17 +1,169 @@
-.content-container{
-    position: absolute; /* Positions the text relative to the container */
-    top: 30%; /* Center vertically */
-    left: 60%; /* Center horizontally */
-    width: 60%; /* Sets the width of the text container */
-    transform: translate(-50%, -50%); /* Precisely centers the text */
-    color: white; /* Ensures text is visible */
-    background-color: #6a6a8599; /* Optional: Adds a background for readability */
-    padding: 20px;
-    border-radius: 30px;
-    margin-bottom: 20px;
+.project1-container {
+    position: relative;
+    z-index: 1; /* Above the particle background */
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(10px, 2vh, 24px) 20px;
+    gap: clamp(6px, 1.5vh, 16px);
+    overflow: hidden;
 }
 
-.content-container h1 {
-    font-size: 3rem; /* Adjusts the size of the heading */
-    margin-bottom: 20px; /* Adds space below the heading */
+.project1-intro {
+    width: 60%;
+    max-width: 700px;
+    color: white; /* Ensures text is visible */
+    background-color: #6a6a8599; /* Optional: Adds a background for readability */
+    padding: clamp(16px, 2.5vh, 28px) clamp(18px, 3vw, 28px);
+    border-radius: 30px;
+}
+
+.project1-intro h1 {
+    font-size: clamp(1.4rem, 3.4vh, 3rem); /* Adjusts the size of the heading */
+    margin-bottom: 8px; /* Adds space below the heading */
+}
+
+.project1-intro p {
+    margin: 0;
+    font-size: clamp(0.8rem, 1.7vh, 1rem);
+    line-height: 1.4;
+}
+
+.demo-picker {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 854px;
+}
+
+.demo-button {
+    padding: clamp(5px, 1vh, 10px) 16px;
+    border: 1px solid #6a6a85;
+    border-radius: 999px;
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    font-size: clamp(0.75rem, 1.6vh, 1rem);
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.demo-button:hover {
+    border-color: #00d4ff;
+}
+
+.demo-button.active {
+    background-color: #1a5fa8;
+    border-color: #00d4ff;
+    color: white;
+}
+
+.upload-button {
+    border-style: dashed;
+}
+
+.upload-input {
+    display: none;
+}
+
+/* Fixed to the exported canvas's own aspect ratio (854x480) so the box
+   never jumps size between demo clips or an uploaded video of a different
+   shape — the video itself letterboxes inside it via object-fit: contain. */
+.video-stage {
+    position: relative;
+    width: min(100%, 854px, 90vh);
+    aspect-ratio: 854 / 480;
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: #0d0d1a;
+    outline: 4px solid transparent;
+    transition: outline-color 0.15s ease;
+}
+
+.video-stage.cue-active {
+    outline-color: #ff3b3b;
+}
+
+.demo-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #0d0d1a;
+}
+
+.hop-cue {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.85);
+    padding: 8px 20px;
+    border-radius: 999px;
+    background-color: #ff3b3b;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transition: opacity 0.1s ease, transform 0.1s ease;
+    pointer-events: none;
+}
+
+.video-stage.cue-active .hop-cue {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
+
+.hop-counter {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.55);
+    color: white;
+    pointer-events: none;
+}
+
+.hop-counter-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: #aaaacc;
+}
+
+.hop-counter-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #00d4ff;
+}
+
+.upload-note {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 14px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #e0e0e0;
+    font-size: 0.85rem;
+    pointer-events: none;
+}
+
+.back-link {
+    display: inline-block;
+    color: white;
+    opacity: 0.75;
+    text-decoration: none;
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+    opacity: 1;
+    text-decoration: underline;
 }
