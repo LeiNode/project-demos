@@ -1,0 +1,89 @@
+.contact-intro {
+    margin-bottom: 14px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-weight: bold;
+}
+
+.contact-optional {
+    font-weight: normal;
+    opacity: 0.75;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #8a8aa5;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.45);
+    color: #ffffff;
+    font: inherit;
+    font-weight: normal;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible {
+    outline: 2px solid #1a83ff;
+    outline-offset: 1px;
+}
+
+/* Off-screen rather than display: none, which some bots check for */
+.contact-honeypot {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.contact-submit {
+    border: none;
+    font: inherit;
+    cursor: pointer;
+}
+
+.contact-submit:disabled {
+    opacity: 0.6;
+    cursor: progress;
+}
+
+.contact-note {
+    font-size: 0.85rem;
+    opacity: 0.75;
+}
+
+.contact-error {
+    padding: 10px 14px;
+    border-radius: 12px;
+    background-color: rgba(255, 59, 59, 0.2);
+    border: 1px solid #ff6b6b;
+}
+
+.contact-status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}

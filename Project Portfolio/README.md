@@ -9,6 +9,7 @@ player's split steps.
 - React 19 + TypeScript, built with Vite and the React Compiler
 - React Router for client-side routing
 - tsParticles for the animated background
+- A Vercel function (`api/contact.ts`) for the contact form, sending mail through Resend
 - Deployed on Vercel (static build, SPA rewrites and security headers in `vercel.json`)
 
 ## Running it
@@ -22,6 +23,15 @@ npm run check     # typecheck, lint and production build; run before pushing
 npm run preview   # serve the production build locally
 ```
 
+The contact form needs the Vercel function, which `npm run dev` doesn't run; use `vercel dev` to test it
+locally. It reads these environment variables:
+
+| Variable | Value |
+| --- | --- |
+| `RESEND_API_KEY` | API key from resend.com |
+| `CONTACT_TO_EMAIL` | Where messages are delivered |
+| `CONTACT_FROM_EMAIL` | Optional sender address on a domain verified in Resend. Without it, Resend's shared test sender is used, which can only deliver to the Resend account's own email |
+
 ## Structure
 
 | Path | What it is |
@@ -30,6 +40,7 @@ npm run preview   # serve the production build locally
 | `src/components/Earth.tsx` | The globe; each continent is a few clipped CSS shapes, and the labelled ones are links |
 | `src/components/ParticlesClass.tsx` | Particle background; holds still for visitors who prefer reduced motion |
 | `public/split-step/` | Demo clips and the hop times the detector found in each (`demo-N-hops.json`) |
+| `api/contact.ts` | Vercel function behind the Connect page's contact form; emails each message through Resend and stores nothing |
 | `vercel.json` | SPA fallback for page routes only (missing files still 404) and security headers |
 
 ## How the Split Step demo works
