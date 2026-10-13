@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import "./Page.css"
 import "./Resume.css"
+import resumePdf from '../assets/Nguyen, Daniel Resume.pdf'
 
 type Entry = { title: string, subtitle?: string, dates: string, bullets?: string[] }
 
@@ -93,9 +94,9 @@ function Resume() {
     <main className='page-container resume'>
       <div className='resume-actions'>
         <Link to='/' className='back-link'>← Back to Earth</Link>
-        <button type='button' className='link-button' onClick={() => window.print()}>
-          Save as PDF
-        </button>
+        <a href={resumePdf} target='_blank' rel='noopener noreferrer' className='link-button'>
+          Download PDF
+        </a>
       </div>
 
       <header className='resume-header'>
