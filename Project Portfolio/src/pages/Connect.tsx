@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import resumePdf from '../resume'
 import "./Page.css"
 
 function Connect() {
@@ -12,7 +13,7 @@ function Connect() {
         <div className='link-list'>
           <a href="https://github.com/leinode" target="_blank" rel="noopener noreferrer" className='link-button'>GitHub</a>
           <a href="https://linkedin.com/in/daniel-nguyen-7a128224b" target="_blank" rel="noopener noreferrer" className='link-button'>LinkedIn</a>
-          <Link to='/resume' className='link-button'>Resume</Link>
+          <a href={resumePdf} target="_blank" rel="noopener noreferrer" className='link-button'>Resume</a>
         </div>
       </section>
     </main>

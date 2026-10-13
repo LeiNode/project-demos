@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import "./Page.css"
 import "./Resume.css"
-import resumePdf from '../assets/Nguyen, Daniel Resume.pdf'
+import resumePdf from '../resume'
 
 type Entry = { title: string, subtitle?: string, dates: string, bullets?: string[] }
 
