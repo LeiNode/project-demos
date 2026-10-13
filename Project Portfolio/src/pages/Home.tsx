@@ -17,6 +17,7 @@ function Home() {
         <Link to='/about'>About Me</Link>
         <Link to='/projects'>Projects</Link>
         <Link to='/connect'>Connect</Link>
+        <Link to='/resume'>Resume</Link>
       </nav>
 
       <footer className='home-footer'>

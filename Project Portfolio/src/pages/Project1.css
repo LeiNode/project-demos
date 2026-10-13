@@ -1,29 +1,29 @@
 .project1-container {
     position: relative;
     z-index: 1; /* Above the particle background */
-    height: 100vh;
-    box-sizing: border-box;
+    /* min-height and no overflow clipping, so on a short or narrow screen the
+       page scrolls instead of cutting off the video and the back link */
+    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: clamp(10px, 2vh, 24px) 20px;
     gap: clamp(6px, 1.5vh, 16px);
-    overflow: hidden;
 }
 
 .project1-intro {
-    width: 60%;
-    max-width: 700px;
-    color: white; /* Ensures text is visible */
-    background-color: #6a6a8599; /* Optional: Adds a background for readability */
+    width: min(100%, 700px);
+    color: white;
+    background-color: #6a6a8599;
     padding: clamp(16px, 2.5vh, 28px) clamp(18px, 3vw, 28px);
     border-radius: 30px;
 }
 
 .project1-intro h1 {
-    font-size: clamp(1.4rem, 3.4vh, 3rem); /* Adjusts the size of the heading */
-    margin-bottom: 8px; /* Adds space below the heading */
+    font-size: clamp(1.4rem, 3.4vh, 3rem);
+    margin-bottom: 8px;
 }
 
 .project1-intro p {
@@ -155,15 +155,7 @@
     pointer-events: none;
 }
 
-.back-link {
-    display: inline-block;
-    color: white;
-    opacity: 0.75;
-    text-decoration: none;
-}
-
-.back-link:hover,
-.back-link:focus-visible {
-    opacity: 1;
-    text-decoration: underline;
+/* .back-link comes from Page.css; the container's gap already spaces it */
+.project1-container .back-link {
+    margin-bottom: 0;
 }

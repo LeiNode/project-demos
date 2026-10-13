@@ -8,9 +8,15 @@ function Projects() {
       <h1>Projects</h1>
 
       <section className='content-container'>
-        <h2>Anomaly Detection in Time Series Data</h2>
-        <p>Write-up coming soon.</p>
-        <Link to='/Project1' className='link-button'>View project</Link>
+        <h2>Split Step Counter</h2>
+        <p>
+          A computer vision model that counts a tennis player's split steps. An LSTM trained on MediaPipe
+          pose landmarks reaches 90% recall and 80% precision on a held-out test set, fed by a Python
+          video-processing pipeline built on threads and queues, and containerized with Docker.
+        </p>
+        <div className='link-list'>
+          <Link to='/projects/split-step' className='link-button'>Watch the demo</Link>
+        </div>
       </section>
 
       <section className='content-container'>

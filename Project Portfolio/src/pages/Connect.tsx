@@ -12,8 +12,8 @@ function Connect() {
         <div className='link-list'>
           <a href="https://github.com/leinode" target="_blank" rel="noopener noreferrer" className='link-button'>GitHub</a>
           <a href="https://linkedin.com/in/daniel-nguyen-7a128224b" target="_blank" rel="noopener noreferrer" className='link-button'>LinkedIn</a>
-          {/* TODO: replace with the real link to your CV */}
-          <a href="https://example.com/cv.pdf" target="_blank" rel="noopener noreferrer" className='link-button'>CV</a>
+          <a href="mailto:daniel.nguyen.2345@gmail.com" className='link-button'>Email</a>
+          <Link to='/resume' className='link-button'>Resume</Link>
         </div>
       </section>
     </main>

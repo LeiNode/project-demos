@@ -18,5 +18,10 @@ export const SidebarData = [
         title: 'Connect',
         path: '/connect',
         cName: 'nav-text'
+    },
+    {
+        title: 'Resume',
+        path: '/resume',
+        cName: 'nav-text'
     }
 ]

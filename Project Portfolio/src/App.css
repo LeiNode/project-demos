@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+/* The Lato font is loaded from index.html, so it starts downloading with the
+   page instead of after this stylesheet */
 
 * {
     box-sizing: border-box;
@@ -7,10 +8,17 @@
     font-family: 'Lato', sans-serif;
 }
 
-.home, .reports,.products{
-    display:flex;
-    height:90vh;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
+/* Matches the particle background so there's no white flash before it loads */
+html {
+    color-scheme: dark;
+}
+
+body {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* The reset above strips list indentation, which pushes bullets outside their box */
+ul, ol {
+    padding-left: 1.5rem;
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AiOutlineClose } from "react-icons/ai"
 import { FaBars } from "react-icons/fa";
 import { Link } from 'react-router-dom';
@@ -7,38 +7,51 @@ import './NavBar.css';
 import { IconContext } from 'react-icons/lib';
 
 function NavBar (){
-    const [sidebar, changeSideBar] = useState(false)
+    const [sidebar, setSidebar] = useState(false)
 
-    const showSidebar = () => changeSideBar(!sidebar)
+    const closeSidebar = () => setSidebar(false)
+
+    // Escape closes the menu, as keyboard users expect from a slide-out panel
+    useEffect(() => {
+        if (!sidebar) return
+        const onKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') setSidebar(false)
+        }
+        window.addEventListener('keydown', onKeyDown)
+        return () => window.removeEventListener('keydown', onKeyDown)
+    }, [sidebar])
 
   return (
-    <>
-        <IconContext.Provider value={{color:'white'}}>
-            <div className='navbar'>
-                <div className='menu-bars'>
-                    <FaBars onClick={showSidebar}/>
-                </div>
-            </div>
-            <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-                <ul className='nav-menu-items' onClick={showSidebar}>
-                    <li className='navbar-toggle'>
-                        <div className='menu-bars'>
-                            <AiOutlineClose />
-                        </div>
+    <IconContext.Provider value={{color:'white'}}>
+        <div className='navbar'>
+            <button
+                type='button'
+                className='menu-bars'
+                aria-label='Open menu'
+                aria-expanded={sidebar}
+                aria-controls='site-menu'
+                onClick={() => setSidebar(true)}
+            >
+                <FaBars aria-hidden='true'/>
+            </button>
+        </div>
+        <nav id='site-menu' className={sidebar ? 'nav-menu active' : 'nav-menu'} aria-label='Site' inert={!sidebar}>
+            <ul className='nav-menu-items'>
+                <li className='navbar-toggle'>
+                    <button type='button' className='menu-bars' aria-label='Close menu' onClick={closeSidebar}>
+                        <AiOutlineClose aria-hidden='true'/>
+                    </button>
+                </li>
+                {SidebarData.map((item) => (
+                    <li key={item.path} className={item.cName}>
+                        <Link to={item.path} onClick={closeSidebar}>
+                            <span>{item.title}</span>
+                        </Link>
                     </li>
-                    {SidebarData.map((items, index) => {
-                        return(
-                            <li key={index} className={items.cName}>
-                                <Link to={items.path}>
-                                    <span>{items.title}</span>
-                                </Link>
-                            </li>
-                        )
-                    })}
-                </ul>
-            </nav>
-        </IconContext.Provider>
-    </>
+                ))}
+            </ul>
+        </nav>
+    </IconContext.Provider>
   )
 }
 

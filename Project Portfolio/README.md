@@ -1,18 +1,40 @@
-# React + Vite
+# Daniel Nguyen — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+My personal portfolio site. The home page is a hand-built globe whose continents are the navigation; the
+Projects section hosts a live demo of my Split Step Counter, a computer vision model that counts a tennis
+player's split steps.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 19 + TypeScript, built with Vite and the React Compiler
+- React Router for client-side routing
+- tsParticles for the animated background
+- Deployed on Vercel (static build, SPA rewrites and security headers in `vercel.json`)
 
-## React Compiler
+## Running it
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+Requires Node 20.19 or newer.
 
-Note: This will impact Vite dev & build performances.
+```sh
+npm install
+npm run dev       # local dev server
+npm run check     # typecheck, lint and production build; run before pushing
+npm run preview   # serve the production build locally
+```
 
-## Expanding the ESLint configuration
+## Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Path | What it is |
+| --- | --- |
+| `src/pages/` | One component per route: Home, About, Projects, Connect, Resume, Project1 (Split Step demo), NotFound |
+| `src/components/Earth.tsx` | The globe; each continent is a few clipped CSS shapes, and the labelled ones are links |
+| `src/components/ParticlesClass.tsx` | Particle background; holds still for visitors who prefer reduced motion |
+| `public/split-step/` | Demo clips and the hop times the detector found in each (`demo-N-hops.json`) |
+| `vercel.json` | SPA fallback for page routes only (missing files still 404) and security headers |
+
+## How the Split Step demo works
+
+The detector runs offline in the desktop app. For each demo clip it exports the clip plus a JSON file of the
+times (in ms) at which it detected a split step. The web page plays the clip and, on every rendered frame,
+counts how many of those times the playhead has passed, lighting the badge for 350 ms after each one.
+Uploaded videos play back only, because detection doesn't run in the browser.

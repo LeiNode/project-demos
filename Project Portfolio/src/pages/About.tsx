@@ -8,46 +8,36 @@ function About() {
       <h1>About Me</h1>
 
       <section className='content-container'>
-        <h2>About Me</h2>
+        <h2>Who I Am</h2>
         <p>
-          I am a software developer with a passion for creating innovative solutions.
-          I have experience in full-stack development, working with technologies such as React, Node.js, and Python.
-          In my free time, I enjoy contributing to open-source projects and exploring new technologies.
-          Feel free to take a look around my portfolio to see some of the projects I've worked on.
-          I look forward to connecting with you.
+          I'm a Computer Science graduate from The University of Texas at Dallas, now working toward a
+          Master of Science in Software Engineering there. I enjoy tackling difficult problems, and I'm most
+          interested in where software engineering meets machine learning, especially computer vision.
         </p>
       </section>
 
       <section className='content-container'>
         <h2>Skills</h2>
-        <p>I have experience in a variety of programming languages and frameworks, including:</p>
         <ul>
-          <li>TypeScript (React, Node.js)</li>
-          <li>Python</li>
-          <li>SQL</li>
-        </ul>
-        <p>
-          I am currently learning about machine learning and data science, and I am excited to apply these skills to future projects.
-          Somethings that I am interested in exploring includes anomaly detection in time series data, natural language processing, and computer vision.
-          I have exerience with, but not limited to:
-        </p>
-        <ul>
-          <li>LSTM</li>
-          <li>Mathplotlib</li>
-          <li>Data Pipelines</li>
-          <li>Anamoly Detection</li>
+          <li>Python, Java, JavaScript, SQL, HTML/CSS</li>
+          <li>React, TensorFlow, PyTorch, scikit-learn, MediaPipe, Pandas, NumPy</li>
+          <li>RESTful API development, object-oriented design, data structures &amp; algorithms</li>
+          <li>MySQL, Oracle, and database design (ER/EER modeling)</li>
+          <li>AWS, Docker, Git, Linux</li>
         </ul>
       </section>
 
       <section className='content-container'>
-        <h2>History</h2>
+        <h2>What I'm Working On</h2>
         <p>
-          I am a software developer with a passion for creating innovative solutions.
-          I have experience in full-stack development, working with technologies such as React, Node.js, and Python.
-          In my free time, I enjoy contributing to open-source projects and exploring new technologies.
-          Feel free to take a look around my portfolio to see some of the projects I've worked on!
-          I look forward to connecting with you.
+          My current project is a tennis training application: an LSTM model that detects split steps from
+          MediaPipe pose landmarks, fed by a multithreaded Python video-processing pipeline and packaged with
+          Docker. You can watch it run on real match footage on the projects page.
         </p>
+        <div className='link-list'>
+          <Link to='/projects' className='link-button'>See my projects</Link>
+          <Link to='/resume' className='link-button'>View my resume</Link>
+        </div>
       </section>
     </main>
   )
