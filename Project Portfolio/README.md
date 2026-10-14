@@ -37,4 +37,4 @@ npm run preview   # serve the production build locally
 The detector runs offline in the desktop app. For each demo clip it exports the clip plus a JSON file of the
 times (in ms) at which it detected a split step. The web page plays the clip and, on every rendered frame,
 counts how many of those times the playhead has passed, lighting the badge for 350 ms after each one.
-Uploaded videos play back only, because detection doesn't run in the browser.
+Detection on uploaded videos is planned (see `TODO.md`).

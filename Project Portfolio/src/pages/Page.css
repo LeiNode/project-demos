@@ -28,7 +28,8 @@
 }
 
 .content-container {
-    background-color: #6a6a8599;
+    /* See-through dark gray, so the particles show faintly behind the text */
+    background-color: rgba(40, 40, 40, 0.7);
     padding: 20px;
     border-radius: 30px;
     margin-bottom: 20px;

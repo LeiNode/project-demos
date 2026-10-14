@@ -8,28 +8,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: clamp(10px, 2vh, 24px) 20px;
+    /* Starts at the top with the same padding as .page-container, so the back
+       link and title sit where they do on the other pages */
+    padding: 32px 16px;
     gap: clamp(6px, 1.5vh, 16px);
 }
 
-.project1-intro {
-    width: min(100%, 700px);
+.project1-header {
+    width: min(100%, 854px); /* Lines up with the video below */
     color: white;
-    background-color: #6a6a8599;
-    padding: clamp(16px, 2.5vh, 28px) clamp(18px, 3vw, 28px);
-    border-radius: 30px;
 }
 
-.project1-intro h1 {
-    font-size: clamp(1.4rem, 3.4vh, 3rem);
-    margin-bottom: 8px;
+/* Matches .page-container h1 on the other pages */
+.project1-header h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
-.project1-intro p {
-    margin: 0;
-    font-size: clamp(0.8rem, 1.7vh, 1rem);
-    line-height: 1.4;
+.project1-header .content-container {
+    margin-bottom: 0;
 }
 
 .demo-picker {
@@ -62,17 +59,8 @@
     color: white;
 }
 
-.upload-button {
-    border-style: dashed;
-}
-
-.upload-input {
-    display: none;
-}
-
 /* Fixed to the exported canvas's own aspect ratio (854x480) so the box
-   never jumps size between demo clips or an uploaded video of a different
-   shape — the video itself letterboxes inside it via object-fit: contain. */
+   never jumps size between demo clips of a different shape — the video itself letterboxes inside it via object-fit: contain. */
 .video-stage {
     position: relative;
     width: min(100%, 854px, 90vh);
@@ -143,7 +131,7 @@
     color: #00d4ff;
 }
 
-.upload-note {
+.stage-note {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -155,7 +143,3 @@
     pointer-events: none;
 }
 
-/* .back-link comes from Page.css; the container's gap already spaces it */
-.project1-container .back-link {
-    margin-bottom: 0;
-}
